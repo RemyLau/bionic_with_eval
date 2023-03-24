@@ -2,24 +2,24 @@
     "networks": [
         {
             "name": "PPI Network",
-            "path": "bioniceval/datasets/Krogan-2006.txt",
+            "path": "datasets/Krogan-2006.txt",
             "delimiter": " "
         },
         {
             "name": "COEX Network",
-            "path": "bioniceval/datasets/Hu-2007.txt",
+            "path": "datasets/Hu-2007.txt",
             "delimiter": " "
         },
         {
             "name": "GI Network",
-            "path": "bioniceval/datasets/Costanzo-2016.txt",
+            "path": "datasets/Costanzo-2016.txt",
             "delimiter": " "
         }
     ],
     "features": [
         {
             "name": "BIONIC Features",
-            "path": "bioniceval/datasets/yeast_BIONIC_features.csv",
+            "path": "datasets/yeast_BIONIC_features.csv",
             "delimiter": ","
         }
     ],
@@ -27,13 +27,13 @@
         {
             "name": "IntAct Fig 2a",
             "task": "coannotation",
-            "path": "bioniceval/standards/yeast-IntAct-complex-coannotation.csv",
+            "path": "standards/yeast-IntAct-complex-coannotation.csv",
             "delimiter": ","
         },
         {
             "name": "IntAct Fig 2a",
             "task": "module_detection",
-            "path": "bioniceval/standards/yeast-IntAct-complex-modules.json",
+            "path": "standards/yeast-IntAct-complex-modules.json",
             "samples": 10,
             "methods": [
                 "average",
@@ -49,7 +49,7 @@
         {
             "name": "IntAct Fig 2a",
             "task": "function_prediction",
-            "path": "bioniceval/standards/yeast-IntAct-complex-labels.json",
+            "path": "standards/yeast-IntAct-complex-labels.json",
             "test_size": 0.1,
             "folds": 5,
             "trials": 10,
