@@ -50,64 +50,13 @@ Windows | ✔️ |  | ✔️ | ✔️ |
 
 **NOTE:** If you run into any problems with installation, please don't hesitate to open an [issue](https://github.com/bowang-lab/BIONIC/issues).
 
-### Preinstallation for CUDA capable BIONIC
+### Installation
 
-If you are installing a CUDA capable BIONIC wheel (i.e. not CPU), first ensure you have a CUDA capable GPU and the [drivers](https://www.nvidia.com/download/index.aspx?lang=en-us) for your GPU are up to date. Then, if you don't have CUDA installed and configured on your system already, [download](https://developer.nvidia.com/cuda-toolkit), install and configure a BIONIC compatible CUDA version. Nvidia provides detailed instructions on how to do this for both [Linux](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html) and [Windows](https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html). 
+Install PyTorch and PyG first, then
 
-### Installing from wheel (recommended for general use)
-
-1. Before installing BIONIC, it is recommended you create a virutal Python **3.8** environment using tools like the built in `venv` command, or [Anaconda](https://docs.anaconda.com/anaconda/user-guide/getting-started/).
-
-2. Make sure your virtual environment is active, then install BIONIC by running
-
-       $ pip install https://github.com/bowang-lab/BIONIC/releases/download/v${VERSION}/bionic_model-${VERSION}+${CUDA}-cp38-cp38-${OS}.whl
-
-    where `${VERSION}`, `${CUDA}` and `${OS}` correspond to the BIONIC version, valid CUDA version (as specified above), and operating system, respectively. `${OS}` takes a value of `linux_x86_64` for Linux, and `win_amd64` for Windows. 
-    
-    For example, if we wanted to install the latest version of BIONIC to run on the CPU on a Linux system, we would run
-    
-       $ pip install https://github.com/bowang-lab/BIONIC/releases/download/v0.2.6/bionic_model-0.2.6+cpu-cp38-cp38-linux_x86_64.whl
-
-    **NOTE:** There is a [known bug](https://github.com/pypa/pip/issues/7626) in certain versions of `pip` which may result in a `No matching distribution` error. If this occurs, install `pip==19.3.1` and try again.
-
-3. Test BIONIC is installed properly by running
-
-       $ bionic --help
-       
-    You should see a help message. 
-
-### Installing using Poetry (recommended for development)
-
-1. If you don't already have it, [install Poetry](https://python-poetry.org/docs/#installation).
-
-2. Create a virtual Python **3.8** environment using tools like the built in `venv` command, or [Anaconda](https://docs.anaconda.com/anaconda/user-guide/getting-started/). Make sure your virutal environment is active for the following steps.
-
-3. Install PyTorch **1.9.0** for your desired CUDA version as follows:
-
-       $ pip install torch==1.9.0+${CUDA} -f https://download.pytorch.org/whl/torch_stable.html
-       
-    where `${CUDA}` is the one of the options listed in the table above.
-
-4. Install PyTorch 1.9.0 compatible [PyTorch Geometric dependencies](https://github.com/rusty1s/pytorch_geometric#pytorch-190) for your desired CUDA version as follows:
-
-       $ pip install torch-scatter==2.0.8 torch-sparse==0.6.11 torch-cluster==1.5.9 -f https://pytorch-geometric.com/whl/torch-1.9.0+${CUDA}.html
-       $ pip install torch-geometric==1.7.2
-
-    where `${CUDA}` is the one of the options listed in the table above.
-
-5. Clone this repository by running
-
-       $ git clone https://github.com/bowang-lab/BIONIC.git
-
-6. Make sure you are in the root directory (same as `pyproject.toml`) and run
-
-       $ poetry install
-       
-7. Test BIONIC is installed properly by running
-
-       $ bionic --help
-       
-    You should see a help message.
+```bash
+pip install -e .
+```
 
 ## :zap: Usage
 
@@ -129,7 +78,7 @@ Argument | Default | Description
 `embedding_size` | `512` | Dimensionality of the learned integrated gene features (see [**usage tips**](#usage-tips)).
 `shared_encoder` | `false` | Whether to use the same graph attention layer (GAT) encoder for all the input networks. This may lead to better performance in certain circumstances.
 `initialization` | `"kaiming"` | Weight initialization scheme. Valid options are `"xavier"` or `"kaiming"`.
-`lambda` | `null` | Relative weighting between reconstruction and classification loss: `final_loss = lambda * rec_loss + (1 - lambda) * cls_loss`. Only relevant if `label_names` is specified. If `lambda` is not provided but `label_names` is, `lambda` will deafult to `0.95`.
+`lambda` | `null` | Relative weighting between reconstruction and classification loss: `final_loss = lambda * rec_loss + (1 - lambda) * cls_loss`. Only relevant if `label_names` is specified. If `lambda` is not provided but `label_names` is, `lambda` will default to `0.95`.
 `neighbor_sample_size` | `2` | Size of neighborhoods to sample around each node for progressive GAT passes per training step (see [**usage tips**](#usage-tips)).
 `gat_shapes.dimension` | `64` | Dimensionality of each individual GAT head (see [**usage tips**](#usage-tips)).
 `gat_shapes.n_heads` | `10` | Number of attention heads for each network-specific GAT.
