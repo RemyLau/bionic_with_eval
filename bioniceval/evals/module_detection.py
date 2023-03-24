@@ -1,22 +1,21 @@
 import json
-from multiprocessing import Pool
-import os
 import random
-from functools import reduce, partial
-from pathlib import Path
-from typing import Dict, List, Tuple, Any
 from collections import defaultdict
+from functools import partial, reduce
+from multiprocessing import Pool
+from pathlib import Path
+from typing import Any, Dict, List, Tuple
 
+import networkx as nx
 import numpy as np
 import pandas as pd
-import networkx as nx
+from scipy.cluster.hierarchy import fcluster, linkage, maxdists
 from scipy.spatial.distance import pdist
-from scipy.cluster.hierarchy import linkage, fcluster, maxdists
-from sklearn.metrics import adjusted_mutual_info_score, adjusted_rand_score
+from sklearn.metrics import adjusted_mutual_info_score
 
+from ..plotting.plotting import plot_module_detection
 from ..state import State
 from ..utils.file_utils import consolidate_features, consolidate_networks
-from ..plotting.plotting import plot_module_detection
 
 
 def module_detection_eval():

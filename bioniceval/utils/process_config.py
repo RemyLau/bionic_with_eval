@@ -1,6 +1,7 @@
 import json
-from typing import List
 from pathlib import Path
+from typing import List
+
 from ..state import State
 
 
@@ -17,7 +18,7 @@ def process_config(exclude_tasks: List[str], exclude_standards: List[str], basel
                     standard
                     for standard in value
                     if standard["task"] not in exclude_tasks
-                       and standard["name"] not in exclude_standards
+                    and standard["name"] not in exclude_standards
                 ]
 
             if key == "features":

@@ -1,13 +1,14 @@
-import typer
 from pathlib import Path
-from typing import Optional, List
-from .utils.resolvers import resolve_config_path, resolve_tasks
-from .utils.process_config import process_config
-from .utils.file_utils import import_datasets
-from .evals.coannotation import coannotation_eval
-from .evals.module_detection import module_detection_eval
-from .evals.function_prediction import function_prediction_eval
+from typing import List, Optional
 
+import typer
+
+from .evals.coannotation import coannotation_eval
+from .evals.function_prediction import function_prediction_eval
+from .evals.module_detection import module_detection_eval
+from .utils.file_utils import import_datasets
+from .utils.process_config import process_config
+from .utils.resolvers import resolve_config_path, resolve_tasks
 
 app = typer.Typer()
 

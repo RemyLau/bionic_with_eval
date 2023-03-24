@@ -1,23 +1,21 @@
 import json
 from pathlib import Path
-from typing import Dict, Union, List
-from collections import defaultdict
+from typing import Dict, List, Union
 
+import networkx as nx
 import numpy as np
 import pandas as pd
-import networkx as nx
-from sklearn.svm import SVC
-from sklearn.multiclass import OneVsRestClassifier
-from sklearn.metrics import f1_score
-from sklearn.decomposition import PCA
-from sklearn.preprocessing import MultiLabelBinarizer, StandardScaler
-from sklearn.model_selection import GridSearchCV, train_test_split
-from sklearn.exceptions import ConvergenceWarning
 from scipy.sparse import csr_matrix
+from sklearn.decomposition import PCA
+from sklearn.metrics import f1_score
+from sklearn.model_selection import GridSearchCV, train_test_split
+from sklearn.multiclass import OneVsRestClassifier
+from sklearn.preprocessing import MultiLabelBinarizer, StandardScaler
+from sklearn.svm import SVC
 
+from ..plotting.plotting import plot_function_prediction
 from ..state import State
 from ..utils.file_utils import consolidate_features, consolidate_networks
-from ..plotting.plotting import plot_function_prediction
 
 
 def function_prediction_eval():

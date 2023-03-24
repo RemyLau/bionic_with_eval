@@ -1,10 +1,10 @@
 from functools import reduce
+from typing import Dict, List, Optional
+
+import networkx as nx
 import numpy as np
 import pandas as pd
-import networkx as nx
-import matplotlib.pyplot as plt
-from typing import Optional, Dict, List
-from pathlib import Path
+
 from ..state import State
 
 

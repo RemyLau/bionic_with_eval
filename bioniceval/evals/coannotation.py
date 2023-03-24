@@ -1,15 +1,15 @@
+from pathlib import Path
+from typing import Dict, Union
+
+import networkx as nx
 import numpy as np
 import pandas as pd
-import networkx as nx
-from typing import Dict, Union
-from pathlib import Path
-from sklearn.metrics import average_precision_score
-from sklearn.metrics import precision_recall_curve, PrecisionRecallDisplay
+from sklearn.metrics import average_precision_score, precision_recall_curve
 from sklearn.metrics.pairwise import cosine_similarity
-import matplotlib.pyplot as plt
+
+from ..plotting.plotting import plot_coannotation
 from ..state import State
 from ..utils.file_utils import consolidate_features, consolidate_networks
-from ..plotting.plotting import plot_coannotation
 
 
 def coannotation_eval():

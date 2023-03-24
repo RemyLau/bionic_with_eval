@@ -1,7 +1,8 @@
-import pandas as pd
-import networkx as nx
 from pathlib import Path
-from typing import List, Union, Dict
+from typing import Dict, List, Union
+
+import networkx as nx
+import pandas as pd
 
 
 class State:
