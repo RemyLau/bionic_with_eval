@@ -3,12 +3,11 @@ from typing import List, Optional
 
 import typer
 
-from .evals.coannotation import coannotation_eval
-from .evals.function_prediction import function_prediction_eval
-from .evals.module_detection import module_detection_eval
-from .utils.file_utils import import_datasets
-from .utils.process_config import process_config
-from .utils.resolvers import resolve_config_path, resolve_tasks
+from eval_coannotation import coannotation_eval
+from eval_function_prediction import function_prediction_eval
+from eval_module_detection import module_detection_eval
+from utils import (import_datasets, process_config, resolve_config_path,
+                   resolve_tasks)
 
 app = typer.Typer()
 
@@ -40,5 +39,5 @@ def evaluate_task(task: str):
         raise NotImplementedError(f"Task '{task}' has not been implemented.")
 
 
-def main():
+if __name__ == "__main__":
     app()

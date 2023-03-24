@@ -13,9 +13,9 @@ from scipy.cluster.hierarchy import fcluster, linkage, maxdists
 from scipy.spatial.distance import pdist
 from sklearn.metrics import adjusted_mutual_info_score
 
-from ..plotting.plotting import plot_module_detection
-from ..state import State
-from ..utils.file_utils import consolidate_features, consolidate_networks
+from plotting import plot_module_detection
+from state import State
+from utils import consolidate_features, consolidate_networks
 
 
 def module_detection_eval():

@@ -7,9 +7,9 @@ import pandas as pd
 from sklearn.metrics import average_precision_score, precision_recall_curve
 from sklearn.metrics.pairwise import cosine_similarity
 
-from ..plotting.plotting import plot_coannotation
-from ..state import State
-from ..utils.file_utils import consolidate_features, consolidate_networks
+from plotting import plot_coannotation
+from state import State
+from utils import consolidate_features, consolidate_networks
 
 
 def coannotation_eval():

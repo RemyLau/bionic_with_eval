@@ -13,9 +13,9 @@ from sklearn.multiclass import OneVsRestClassifier
 from sklearn.preprocessing import MultiLabelBinarizer, StandardScaler
 from sklearn.svm import SVC
 
-from ..plotting.plotting import plot_function_prediction
-from ..state import State
-from ..utils.file_utils import consolidate_features, consolidate_networks
+from plotting import plot_function_prediction
+from state import State
+from utils import consolidate_features, consolidate_networks
 
 
 def function_prediction_eval():
