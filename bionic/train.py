@@ -1,25 +1,23 @@
-import json
-import time
 import math
+import time
 import warnings
 from pathlib import Path
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
-import typer
 import numpy as np
 import pandas as pd
-
 import torch
-import torch.optim as optim
 import torch.multiprocessing
+import torch.optim as optim
+import typer
 
-from .utils.config_parser import ConfigParser
-from .utils.plotter import plot_losses, save_losses
-from .utils.preprocessor import Preprocessor
-from .utils.sampler import StatefulSampler, NeighborSamplerWithWeights
-from .utils.common import extend_path, cyan, magenta, Device
-from .model.model import Bionic, BionicParallel
-from .model.loss import masked_scaled_mse, classification_loss
+from bionic.model.loss import classification_loss, masked_scaled_mse
+from bionic.model.model import Bionic, BionicParallel
+from bionic.utils.common import Device, cyan, extend_path, magenta
+from bionic.utils.config_parser import ConfigParser
+from bionic.utils.plotter import plot_losses, save_losses
+from bionic.utils.preprocessor import Preprocessor
+from bionic.utils.sampler import NeighborSamplerWithWeights, StatefulSampler
 
 
 class Trainer:
@@ -175,7 +173,7 @@ class Trainer:
         """Trains BIONIC model.
 
         Args:
-            verbosity (int): 0 to supress printing (except for progress bar), 1 for regular printing.
+            verbosity (int): 0 to suppress printing (except for progress bar), 1 for regular printing.
         """
 
         # Track losses per epoch.
@@ -206,7 +204,7 @@ class Trainer:
                         epoch_losses[idx] += loss
 
                     # Add classification losses if applicable
-                    for idx, loss in enumerate(losses[len(rand_idxs) :]):
+                    for idx, loss in enumerate(losses[len(rand_idxs):]):
                         epoch_losses[len(rand_idxs) + idx] = loss
 
             else:
@@ -367,7 +365,7 @@ class Trainer:
         """Runs the forward pass on the trained BIONIC model.
 
         Args:
-            verbosity (int): 0 to supress printing (except for progress bar), 1 for regular printing.
+            verbosity (int): 0 to suppress printing (except for progress bar), 1 for regular printing.
         """
 
         # Begin inference

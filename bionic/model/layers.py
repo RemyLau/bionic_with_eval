@@ -1,18 +1,17 @@
+from typing import Optional, Tuple
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-
 from torch import Tensor
-from torch_scatter import scatter
-from torch_geometric.utils.num_nodes import maybe_num_nodes
 from torch_geometric.nn import GATConv
-
-from ..utils.common import Device
-
-from typing import Optional, Tuple
 from torch_geometric.typing import OptTensor
 from torch_geometric.utils import add_self_loops, remove_self_loops
+from torch_geometric.utils.num_nodes import maybe_num_nodes
+from torch_scatter import scatter
 from torch_sparse import SparseTensor, set_diag
+
+from bionic.utils.common import Device
 
 
 def weighted_softmax(

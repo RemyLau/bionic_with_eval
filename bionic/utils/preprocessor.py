@@ -1,21 +1,20 @@
 import json
-from typing import List, Optional
-from pathlib import Path
 from functools import reduce
+from pathlib import Path
+from typing import List, Optional
 
-import typer
-import torch
 import numpy as np
 import pandas as pd
+import torch
+import typer
 from sklearn.preprocessing import MultiLabelBinarizer
-
-from .common import magenta, Device
-
 from torch import Tensor
-from torch_geometric.transforms import ToSparseTensor
-from torch_sparse import SparseTensor
-from torch_geometric.utils import remove_self_loops, to_undirected
 from torch_geometric.data import Data
+from torch_geometric.transforms import ToSparseTensor
+from torch_geometric.utils import remove_self_loops, to_undirected
+from torch_sparse import SparseTensor
+
+from bionic.utils.common import Device, magenta
 
 
 class Preprocessor:

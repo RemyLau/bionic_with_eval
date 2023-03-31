@@ -1,9 +1,9 @@
+from typing import List, NamedTuple, Tuple
+
 import torch
+from torch import Tensor
 from torch.utils.data import Sampler
 from torch_geometric.data import NeighborSampler
-
-from typing import List, Tuple, NamedTuple
-from torch import Tensor
 
 
 class StatefulSampler(Sampler):

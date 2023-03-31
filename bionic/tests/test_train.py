@@ -1,11 +1,12 @@
 import json
 from pathlib import Path
 
-import torch
-import pytest
 import numpy as np
 import pandas as pd
+import pytest
+import torch
 from scipy.spatial.distance import pdist, squareform
+
 from bionic.train import Trainer
 from bionic.utils.common import Device
 

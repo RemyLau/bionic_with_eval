@@ -1,7 +1,7 @@
-import typer
 from pathlib import Path
 
 import torch
+import typer
 
 
 def extend_path(path: Path, extension: str) -> Path:

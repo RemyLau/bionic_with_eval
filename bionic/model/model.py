@@ -1,17 +1,14 @@
 import warnings
-import numpy as np
+from typing import Dict, List, Optional, Tuple
 
+import numpy as np
 import torch
 import torch.nn as nn
 from torch import Tensor
-from torch_sparse import SparseTensor
 
-from ..utils.sampler import Adj
-from ..utils.common import Device
-
-from typing import Dict, List, Tuple, Optional
-
-from .layers import WGATConv, Interp
+from bionic.model.layers import Interp, WGATConv
+from bionic.utils.common import Device
+from bionic.utils.sampler import Adj
 
 
 class BionicEncoder(nn.Module):

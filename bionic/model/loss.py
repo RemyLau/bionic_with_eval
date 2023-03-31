@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 from torch import Tensor
 
-from ..utils.common import Device
+from bionic.utils.common import Device
 
 
 def masked_scaled_mse(

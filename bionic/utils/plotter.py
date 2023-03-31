@@ -1,9 +1,9 @@
-from typing import List, Optional
 from pathlib import Path
+from typing import List, Optional
 
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
 
 LINE_WIDTH = 1.5
 
@@ -45,7 +45,7 @@ def plot_losses(
                 x_epochs, total_recon_loss, lw=LINE_WIDTH, c=next(gen), label="Reconstruction Total"
             )
             ax2 = ax1.twinx()
-            total_cls_loss = train_losses[len(net_names) :].sum(axis=0)
+            total_cls_loss = train_losses[len(net_names):].sum(axis=0)
             ax2.plot(
                 x_epochs, total_cls_loss, label="Classification Total", lw=LINE_WIDTH, c=next(gen)
             )
@@ -66,9 +66,9 @@ def plot_losses(
 
         if label_names is not None:
             ax2 = ax1.twinx()
-            for loss, name in zip(train_losses[len(net_names) :], label_names):
+            for loss, name in zip(train_losses[len(net_names):], label_names):
                 ax2.plot(x_epochs, loss, label=name.name, lw=LINE_WIDTH, c=next(gen))
-            total_cls_loss = train_losses[len(net_names) :].sum(axis=0)
+            total_cls_loss = train_losses[len(net_names):].sum(axis=0)
             ax2.plot(
                 x_epochs, total_cls_loss, label="Classification Total", lw=LINE_WIDTH, c=next(gen)
             )
