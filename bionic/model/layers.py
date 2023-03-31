@@ -61,17 +61,17 @@ class WGATConv(GATConv):
         alpha_r = None
         if isinstance(x, Tensor):
             assert x.dim() == 2, "Static graphs not supported in `GATConv`."
-            x_l = x_r = self.lin_l(x).view(-1, H, C)
-            alpha_l = (x_l * self.att_l).sum(dim=-1)
-            alpha_r = (x_r * self.att_r).sum(dim=-1)
+            x_l = x_r = self.lin_src(x).view(-1, H, C)
+            alpha_l = (x_l * self.att_src).sum(dim=-1)
+            alpha_r = (x_r * self.att_dst).sum(dim=-1)
         else:
             x_l, x_r = x[0], x[1]
             assert x[0].dim() == 2, "Static graphs not supported in `GATConv`."
-            x_l = self.lin_l(x_l).view(-1, H, C)
-            alpha_l = (x_l * self.att_l).sum(dim=-1)
+            x_l = self.lin_src(x_l).view(-1, H, C)
+            alpha_l = (x_l * self.att_src).sum(dim=-1)
             if x_r is not None:
-                x_r = self.lin_r(x_r).view(-1, H, C)
-                alpha_r = (x_r * self.att_r).sum(dim=-1)
+                x_r = self.lin_dst(x_r).view(-1, H, C)
+                alpha_r = (x_r * self.att_dst).sum(dim=-1)
         assert x_l is not None
         assert alpha_l is not None
 
