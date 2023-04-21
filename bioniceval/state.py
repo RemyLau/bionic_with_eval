@@ -13,7 +13,7 @@ class State:
     config_features: List[Dict[str, Union[str, Path]]]
     config_networks: List[Dict[str, Union[str, Path]]]
     config_standards: List[Dict[str, Union[str, Path]]]
-    result_path: Path = Path("bioniceval/results")
+    result_path: Path = Path("results")
     consolidation: str
     plot: bool = True
     baseline: List[str] = []  # baseline genes list
